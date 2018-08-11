@@ -33,8 +33,8 @@ const APIObject = {
     }
     // get entries
     APIObject.getEntries = () => {
-        return fetch("http://localhost:8088/entries")
-        .then(response => response.json())
+        return fetch("http://localhost:8088/entries?_order=desc&_sort=id")
+        .then(response => response.json());
     }
 
     APIObject.deleteJournalEntry = (id) => {
@@ -42,10 +42,19 @@ const APIObject = {
             method: "DELETE",
 
         } )
-
+    }
+    // edit the existing info
+    APIObject.editEntry = (ID) => {
+        return fetch(`http://localhost:8088/entries${ID}`, {
+            method: "PUT",
+            headers: {
+                "content-Type": "application/json"
+            },
+            body: JSON.stringify(entry)
+        } )
+        .then(response => response.json())
 
     }
-
 
 
 

@@ -12,18 +12,21 @@ const FormManager = Object.create(null, {
     renderEntryForm: {
         value: () => {
                 return `
-            <fieldset>
-                <label for="entryTitle">Title:</label>
-                <input required type="text" name="entryTitle" id="entryTitle">
-            </fieldset>
+                <div class = "wrapperInputDOM">
+                <div class = "inputDOM">
 
-            <fieldset>
-                <label for="entryContent">Content:</label>
-                <textarea id="entryContent"></textarea>
-            </fieldset>
+                <label for="entryTitle">Name me!</label>
+                <input required type="text" name="entryTitle" class= "entryTitle" id="entryTitle">
 
-            <button class="saveEntryButton">Save </button>`
 
+
+                <label for="entryContent">What cha thinkin'?</label>
+                <textarea class= "entryContent" id="entryContent" rows="12"></textarea>
+
+
+            <button class="saveEntryButton">Save </button>
+            </div>
+            </div>`
             }
         }
     })
